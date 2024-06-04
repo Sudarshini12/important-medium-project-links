@@ -1,0 +1,28 @@
+pipeline {
+
+   agent {
+      kubernetes {
+          yamlfile 'buildpod.yml'
+
+       }
+   }
+
+    stages {
+        stage ('IntegrationTestBuild') {
+            steps {
+                 container ('cisdocker'){
+                    sh "mvn install"
+                  }
+                    container ('dockerbuild'){
+                       sh "/kaniko/executor --dockerfile `pwd`/Dockerfile --context `pwd` --destination=artifacts.microchip.com:7998/cad/cic/cis-ipworkflow-service:${env.BRANCH_NAME-${env.BUILD_NUMBER}"
+                  }
+             }
+         }
+    }		 
+   post {
+        always {
+            junit 'target/surefire-reports/*.xml'
+        }
+    }
+  }
+}
