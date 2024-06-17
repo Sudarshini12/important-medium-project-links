@@ -29,3 +29,24 @@ select AWS CLI devcontainers
 terraform --version
 
 
+AWS Configure
+
+Accesskey
+Secretkey
+
+aws region :us-east-1
+o/p format: json
+
+aws s3 ls
+
+
+terraform init
+
+Hashicorp Terraform plugin in VSCode
+
+HCL
+
+Hashicorp HCL Syntax
+
+tfstatefile is whatever it is creating it will record
+
