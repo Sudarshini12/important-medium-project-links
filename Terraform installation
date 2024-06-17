@@ -53,3 +53,17 @@ Hashicorp HCL Syntax
 
 tfstatefile is whatever it is creating it will record
 
+
+IAM Credentials
+
+access key 
+secret key
+
+
+ami id
+instance type
+sunet id
+key name
+
+
+
