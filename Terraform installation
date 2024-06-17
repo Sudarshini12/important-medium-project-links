@@ -1,1 +1,31 @@
 https://www.coachdevops.com/2023/08/how-to-install-terraform-on-linux-os.html
+
+
+Git Hub Codespace
+
+codespace
+> Dev
+
+add dev container configurtion files
+Modify your configuration
+
+terraform
+
+select terraform verify
+
+keep defaults
+
+devcontainer.json
+
+
+2)> Dev
+add dev container configurtion files
+Modify your configuration
+
+AWS
+
+select AWS CLI devcontainers
+
+terraform --version
+
+
