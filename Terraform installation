@@ -17,6 +17,9 @@ keep defaults
 
 devcontainer.json
 
+>rebuild
+codespace rebuild container
+
 
 2)> Dev
 add dev container configurtion files
