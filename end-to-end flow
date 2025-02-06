@@ -1,0 +1,41 @@
+Can you explain the end-to-end flow of how a user accesses a web application hosted on private EC2 instances using Route 53, an Application Load Balancer (ALB), and an Auto Scaling Group (ASG)? Specifically, when a user enters the web address in their browser, how is the content served from the web server?
+
+Note: This one question assesses your skills in Route53, Load Balancer, Auto Scaling Group, and EC2 Instance on the Private subnet running web server. VPC networking.
+
+Answer:
+
+Here’s the end-to-end flow of how a user accesses a web application hosted on private EC2 instances using Route 53, an Application Load Balancer (ALB), and an Auto Scaling Group (ASG):
+
+DNS Resolution via Route 53:
+
+The user enters their browser's web address (e.g., www.example.com). Route 53 resolves the domain name to the IP address of the Application Load Balancer (ALB) by querying its hosted zone and routing the traffic to the correct ALB endpoint.
+
+Request Routing to ALB:
+
+The ALB, configured with listener rules (e.g., HTTP/HTTPS), receives the request and determines the appropriate target group based on the configured routing rules. This is often based on URL path, host headers, or other criteria.
+
+ALB Routes Request to EC2 Instances in ASG:
+
+The ALB forwards the request to one of the private EC2 instances registered in the target group. These instances are part of an Auto Scaling Group (ASG), which ensures that the correct number of instances are running based on traffic demand.
+
+EC2 Instances Process the Request:
+
+The EC2 instance that receives the request runs the web application, processes it, and generates the response (HTML, JavaScript, images, etc.) based on the content configured on the web server.
+
+Response Served to the User:
+
+The web server on the EC2 instance sends the response (such as the requested webpage) back to the ALB, which then forwards the content to the user’s browser. The browser renders the content, completing the request.
+
+The interviewer asked these follow-up questions:
+
+1. How does Route 53 handle DNS failover if the ALB becomes unavailable?
+
+2. What happens if an EC2 instance becomes unhealthy in the ASG? How does the ALB ensure continuous availability of the web application?
+
+3. Can you configure SSL termination on the ALB, and how does it work with private EC2 instances?
+
+4. How is the ec2 instance in the private subnet connected to ALB?
+
+Take Away: 
+
+These questions are sufficient to assess your proficiency in AWS services, particularly in core areas like Networking and Compute. It's crucial to have a solid understanding of these foundational services.
